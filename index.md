@@ -13,6 +13,7 @@ Ryo Hashiguchi
 ## Social
 - [Yayaka19: @ryo33](https://yayaka.net/users/ryo33)
 - [Twitter: @idryo33](https://twitter.com/idryo33/)
+- [FreezePeach: @ryo33](https://freezepeach.xyz/ryo33)
 - [Instagram: @ryo33music](https://www.instagram.com/ryo33music/)
 
 ## Blog
