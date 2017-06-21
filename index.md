@@ -5,7 +5,10 @@ layout: page
 # Ryo33
 Ryo Hashiguchi
 
+
 ## Works
+- [Blog](/posts)
+- [Slides](/slides)
 - [GitHub: github.com/ryo33](https://github.com/ryo33/)
 - [Spotify: Ryo33](https://open.spotify.com/artist/5eVliu0KdgjOH2IHAHy7wR)
 - [SoundCloud: Ryo33](https://soundcloud.com/ryo33)
@@ -16,9 +19,6 @@ Ryo Hashiguchi
 - [FreezePeach: @ryo33](https://freezepeach.xyz/ryo33)
 - [Instagram: @ryo33music](https://www.instagram.com/ryo33music/)
 
-## Blog
-- [Blog 1: Ryo33](/posts)
-- [Blog 2: ありえんHip-Hop](http://ryo33.hatenablog.com/)
-
-## Wishlist
-- [Amazon](http://amzn.asia/0RYE1TN)
+## Other links
+- [ありえんHip-Hop](http://ryo33.hatenablog.com/)
+- [Amazon Wishlist](http://amzn.asia/0RYE1TN)

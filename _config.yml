@@ -84,3 +84,7 @@ exclude:
   - LICENSE
   - README.md
   - CNAME
+
+collections:
+  slides:
+    output: true
