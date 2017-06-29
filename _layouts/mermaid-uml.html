@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }}</title>
+    {% include meta.html %}
+    <script src="https://unpkg.com/mermaid@7.0.3/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/mermaid@7.0.3/dist/mermaid.min.css">
+    <script>mermaid.initialize({startOnLoad:true});</script>
+  </head>
+
+  <body>
+    <div>
+      {{ content }}
+    </div>
+  </body>
+</html>

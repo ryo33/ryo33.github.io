@@ -88,3 +88,5 @@ exclude:
 collections:
   slides:
     output: true
+  others:
+    output: true
