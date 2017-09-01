@@ -1,0 +1,78 @@
+---
+layout: remark-slide
+title: Yayakaプロトコルのリファレンス実装が動いた。
+---
+
+class: center, middle
+
+# Yayakaプロトコルのリファレンス実装が動いた。
+
+## Ryo33 (Ryo Hashiguchi)
+
+---
+
+# 良かったこと
+- Elixirで書いたので楽しかった
+- 設計が楽しかった
+- 実装とテストが楽な設計だった
+
+---
+
+# 悪かったこと
+- 特になし。
+
+---
+
+# とりあえず、早速、デモをやっていく
+- 別インスタンスにユーザーを作成
+- 別インスタンスに作成済みユーザーを操作
+- 複数インスタンスを組み合わせてタイムラインを表示
+
+---
+
+# 使用するYayakaインスタンス
+- [dry-lake](https://dry-lake-67601.herokuapp.com)
+- [afternoon-brook](https://afternoon-brook-77349.herokuapp.com)
+- [salty-springs](https://salty-springs-53751.herokuapp.com)
+- [nameless-cove](https://nameless-cove-43910.herokuapp.com)
+
+---
+
+# その前に表記の説明
+- nameless-cove  
+  *nameless-cove*というホスト
+- ryo33@nameless-cove  
+  *nameless-cove*上の*Identityサービス*で登録した*ryo33*というユーザー
+- nameless-cove/social-graph  
+  *nameless-cove*上の*Social Graphサービス*
+- nameless-cove/social-graph/ryo12@afternoon-brook  
+  *nameless-cove*上の*Social Graphサービス*上の*ryo12@afternoon-brook*
+
+---
+
+# いまからやること
+- Yayakaプロトコルをほぼ直に触るイメージ
+- 本来はYayakaプロトコルを実装するWebサイトがユーザーの操作の裏でやったほうが良いことが含まれる
+
+---
+
+# 別インスタンスにユーザーを作成
+- *dry-lake*から*ryo19@salty-springs*を作成
+
+---
+
+# 別インスタンスに作成済みのユーザーを操作
+*dry-lake*から*ryo33@nameless-cove*を操作する
+- *dry-lake*用の*ryo33@nameless-cove*認証のためのトークンを取得
+- *dry-lake*でトークンを用いる
+
+---
+
+# 複数インスタンスを組み合わせてタイムラインを表示
+- *dry-lake/presentation*から*nameless-cove/social-graph/ryo12@afternoon-brook*のタイムラインを表示する
+
+---
+
+# さいごに
+
+- うごくと楽しい。

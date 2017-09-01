@@ -1,0 +1,307 @@
+---
+layout: remark-slide
+title: Yayakaプロトコル概説_20170901
+---
+
+class: center, middle
+
+# Yayakaプロトコル概説_20170901
+
+## Ryo33 (Ryo Hashiguchi)
+
+---
+
+# 用語の説明
+
+<dl>
+  <dt>インスタンス
+  <dd>Yayakaプロトコルを実装しているサーバー
+
+  <dt>Yayakaネットワーク
+  <dd>複数のYayakaインスタンスによって構成される分散SNS
+
+  <dt>サービス
+  <dd>Yayakaプロトコルで分散SNSを構成するための機能の集合の単位
+
+  <dt>ユーザー
+  <dd>利用者があるインスタンスで登録したもの
+
+  <dt>イベント
+  <dd>ユーザーの投稿やリポストなど
+</dl>
+
+---
+
+# Yayakaプロトコルとは
+
+- 分散SNSのためのプロトコル
+- OStatus辛い勢〜一般層向け
+- 思想より実用性重視
+  - ユーザーのアイデンティティーをインスタンスから切り離しはしない
+  - 冗長化はしない
+- 小さなプロトコル・小さなソフトウェア
+- ~~詳細仕様も実装もまだ~~ 大体の仕様が決まってリファレンス実装が動く
+- Everything is Yayaka
+
+---
+
+# 何を目指すか
+
+1. **権利**の分散
+2. **権力**の分散
+3. **資源**の分散
+
+---
+
+# 1. 権利の分散
+
+- 脱中央集権
+- １つの独占されたWebサービスではない
+- みんなが*勝手に*プロトコルを拡張する
+
+---
+
+# 2. 権力の分散
+
+- 独裁状態のインスタンス群からの脱却
+- ユーザーの自由を守る
+
+---
+
+# 3. 資源の分散
+
+- 小さいサーバーをたくさん立てる
+
+???
+"Yayakaプロトコルがこれらをどのように実現するのか話します。"
+
+---
+
+# 1. Yayakaプロトコルによる権利の分散
+
+- 複数のインスタンスが協力してSNSを構成
+- 勝手にサブプロトコルを作って拡張可能
+
+---
+
+# 2. Yayakaプロトコルによる権力の分散
+
+- 小さな権力を持つ複数のインスタンスの緩い同盟により分散SNSを構築
+- 不当に権力を行使するインスタンスから簡単に亡命可能
+
+---
+
+# 3. Yayakaプロトコルによる資源の分散
+
+- 分散SNSの機能をいくつかのサービスに分け、細かい単位で複数ホストに分散
+
+---
+
+# サービスについて
+
+- 分散SNSの機能群を階層化
+- Identity・Repository・Social Graph・Presentation・Notificationの５つのサービス
+- ユーザーは複数のRepository・Social Graph・Presentation・Notificationサービスを同時に利用
+- 同じインスタンス上に置かなくても良い
+- １サービスだけを実装した単一の機能をもつインスタンスが存在できる
+
+---
+
+# Identityサービス
+- ユーザー情報の保持
+- 他のサービスの認可
+- **Identityサービスだけを実装すれば、任意の既存のサイトのアカウントでYayakaネットワークに参加できる**
+
+---
+
+# Repositoryサービス
+- イベントの永続化
+- **Repositoryサービスだけを実装すれば、任意の既存のサイトのコンテンツをYayakaネットワーク上に配信できる**
+
+---
+
+# Social Graphサービス
+- フォロー関係の保持とタイムラインの形成
+- タイムラインの配信
+- 個人TL、マストドンのLTL、Twitterのリストなど
+
+---
+
+# Presentationサービス
+- UIやAPIの提供
+
+---
+
+# Notificationサービス
+- ~~Presentationサービスに通知を配信~~
+- 任意の手段でユーザーに通知を送る
+
+---
+
+# Yayakaサービスを組み合わせて使う
+- Identity
+- RepositoryとIdentity
+- Social GraphとRepositoryとIdentity
+
+---
+
+# Presentation + Identity
+
+利用者が*Presentationサービス*と*Identityサービス*のみを用いる場合について考える。
+
+ユーザー登録とユーザー属性の追加が可能。
+
+**オンラインプロフィールサービス**として機能する。
+
+---
+
+# Presentation + Repository + Identity
+
+*オンラインプロフィールサービス* + *Repository*
+
+利用者はユーザー情報に紐付いた形でイベントを発行できる。
+
+**分散ブログサービス**として機能する。
+
+---
+
+# Presentation + Social Graph + Repository + Identity
+
+*分散ブログサービス* + *Social Graph*
+
+**分散SNS**として機能する。
+
+---
+
+# 表
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Presentation</th>
+      <th>Social Graph</th>
+      <th>Repository</th>
+      <th>Identity</th>
+      <th>機能</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>✅</th>
+      <th></th>
+      <th></th>
+      <th>✅</th>
+      <th>オンラインプロフィール</th>
+    </tr>
+    <tr>
+      <th>✅</th>
+      <th></th>
+      <th>✅</th>
+      <th>✅</th>
+      <th>分散ブログ</th>
+    </tr>
+    <tr>
+      <th>✅</th>
+      <th>✅</th>
+      <th>✅</th>
+      <th>✅</th>
+      <th>分散SNS</th>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+class: center, middle
+
+# なぜこれがうまくいくのか
+
+???
+このようなアーキテクチャは非常にうまくいくことがわかっています。
+
+---
+
+# 例: メーリングリスト
+
+メーリングリストは似たようなアーキテクチャです。
+
+- Mail Clientサービス  
+  メールを送信、閲覧するUIを提供  
+- Mailサービス  
+  メールの送受信を行う  
+- Mailing Listサービス  
+  メールを配信する
+
+- ユーザーは複数のメールクライアント・メールアドレス・メーリングリストを利用する
+- 無数の組み合わせ
+- 場所を追われたら別のサーバーを使えばいい
+
+---
+
+# 階層化されたプロトコル
+
+- ~~YMP (Yayaka Meta/Messaging Protocol)~~ Amorphos Protocol  
+　Yayakaプロトコルの下位プロトコル
+
+- Yayakaサブプロトコル  
+　Yayakaプロトコルの上位プロトコル
+
+---
+
+# Amorphos Protocol
+分散Webアプリケーションのためのプロトコル
+
+Amorphosサーバー（Amorphosを実装するサーバー）は複数のConnectionプロトコルとServiceプロトコルを定義する
+
+- Connectionプロトコル群  
+  Amorphosサーバー同士の通信方法を定義
+
+- Serviceプロトコル群  
+  Amorphosサーバー同士のメッセージのやり取りによる振る舞いを定義  
+  **YayakaプロトコルはServiceプロトコルのうちの一つ**
+
+---
+
+# Yayakaサブプロトコル
+
+Yayakaプロトコルの上位プロトコル
+
+プロフィール属性・イベントの種類・コンテンツの種類・通知の種類を定義
+
+- プロフィール属性  
+  *ユーザーID*・*表示名*・*アイコン*・*bio*など
+
+- イベントの種類  
+  *投稿*・*リポスト*・*お気に入り*など
+
+- コンテンツの種類  
+  *plaintext*・*github-flavored-markdown*・*bbcode*・*image/png*など MIME的な
+
+- 通知の種類  
+  *フォロー*・*リプライ*など
+
+---
+
+# 投稿時の動作
+<a href="{{ site.baseurl }}{% link _others/2017-6-29-yayaka.md %}" target="_blank">飛び</a>
+
+---
+
+# 現状
+
+- Amorphosの定義はほとんど完成
+- ~~現在はYayakaプロトコルとElixirによるリファレンス実装を同時進行で進めている~~ 動いた
+
+---
+
+# 計画
+
+- ~~最初のConnectionプロトコルを作る~~ ✅
+- yayaka.netにYayakaプロトコルを適用 **New**
+- Amorphosの上層プロトコルを登録する分散レジストリのためのServiceプロトコルを作成する
+- 分散GitホスティングサービスのためのServiceプロトコルを作成する
+
+---
+
+# リンク
+- [github.com/Yayaka](https://github.com/Yayaka)
