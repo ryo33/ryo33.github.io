@@ -3,7 +3,7 @@ layout: page
 ---
 
 # Ryo33
-Ryo Hashiguchi
+Hashiguchi Ryo
 
 
 ## Works
