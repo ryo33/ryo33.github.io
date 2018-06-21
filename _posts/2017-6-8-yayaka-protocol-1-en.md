@@ -31,6 +31,7 @@ Each server can have a minimum implementation.
 ## Features
 
 Here are the features of Yayaka Protocol to perform the purposes.
+In order to carry out the idea above, the following features will be implemented in the protocol.
 
 - Easily migration between servers.
 - Each server only has to implement a partial set of functions of distributed social blogging.
