@@ -9,7 +9,7 @@ Hashiguchi Ryo
 ## Works
 - [Blog](/posts)
 - [Slides](/slides)
-- [GitHub: github.com/ryo33](https://github.com/ryo33/)
+- [GitLab: ryo33](https://gitlab.com/ryo33/)
 - [SoundCloud: Ryo33](https://soundcloud.com/ryo33)
 - [Spotify: Ryo33 (as a listener)](https://open.spotify.com/user/22xo6muxbpfsoloyqechzh6yy)
 - [Spotify: Ryo33 (as an artist)](https://open.spotify.com/artist/5eVliu0KdgjOH2IHAHy7wR)
